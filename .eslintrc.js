@@ -19,6 +19,7 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/no-empty-interface': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-use-before-define': ['error', { functions: false }],
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
