@@ -1,5 +1,3 @@
-import expect from 'expect';
-
 import { JID } from '../src';
 
 // tslint:disable no-identical-functions no-duplicate-string

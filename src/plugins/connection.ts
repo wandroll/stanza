@@ -17,7 +17,7 @@ export interface KeepAliveOptions {
 declare module '../' {
     export interface Agent {
         _keepAliveInterval: any;
-        _keepAliveOptions: KeepAliveOptions;
+        _keepAliveOptions?: KeepAliveOptions;
 
         markActive(): void;
         markInactive(): void;

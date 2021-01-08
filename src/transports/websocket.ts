@@ -4,7 +4,7 @@ import { WebSocket } from 'stanza-shims';
 import { Agent, Transport, TransportConfig } from '../';
 import { StreamErrorCondition } from '../Constants';
 import StreamManagement from '../helpers/StreamManagement';
-import { ParsedData, Registry, StreamParser } from '../jxt';
+import { JSONData, ParsedData, Registry, StreamParser } from '../jxt';
 import { Stream } from '../protocol';
 
 const WS_OPEN = 1;
@@ -136,7 +136,7 @@ export default class WSConnection extends Duplex implements Transport {
         }
     }
 
-    public async send(dataOrName: string, data?: object): Promise<void> {
+    public async send(dataOrName: string, data?: JSONData): Promise<void> {
         let output: string | undefined;
         if (data) {
             output = this.stanzas.export(dataOrName, data)?.toString();

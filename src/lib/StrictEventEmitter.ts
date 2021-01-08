@@ -165,11 +165,13 @@ export type OnEventNames<
     TEventRecord extends NoUndefined<TEmitter[' _eventsType']> = NoUndefined<
         TEmitter[' _eventsType']
     >,
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     TEmitRecord extends NoUndefined<TEmitter[' _emitType']> = NoUndefined<TEmitter[' _emitType']>
 > = keyof TEventRecord;
 
 export type EmitEventNames<
     TEmitter extends TypeRecord<any, any, any>,
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     TEventRecord extends NoUndefined<TEmitter[' _eventsType']> = NoUndefined<
         TEmitter[' _eventsType']
     >,

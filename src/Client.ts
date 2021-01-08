@@ -5,6 +5,7 @@ import { Agent, AgentConfig, Transport } from './';
 import StreamManagement from './helpers/StreamManagement';
 import * as JID from './JID';
 import * as JXT from './jxt';
+import { JSONData } from './jxt';
 import * as SASL from './lib/sasl';
 import { core as corePlugins } from './plugins';
 import Protocol, { IQ, Message, Presence, StreamError } from './protocol';
@@ -28,7 +29,7 @@ export default class Client extends EventEmitter {
     public sessionStarting?: boolean;
     public sessionStarted?: boolean;
     public sessionTerminating?: boolean;
-    public reconnectAttempts: number = 0;
+    public reconnectAttempts = 0;
 
     public transports: {
         [key: string]: new (
@@ -410,7 +411,7 @@ export default class Client extends EventEmitter {
         await this.sm.shutdown();
     }
 
-    public async send(kind: string, stanza: object, replay = false): Promise<void> {
+    public async send(kind: string, stanza: JSONData, replay = false): Promise<void> {
         return new Promise((resolve, reject) => {
             this.outgoingDataQueue.push({ kind, stanza, replay }, replay ? 0 : 1, err =>
                 err ? reject(err) : resolve()

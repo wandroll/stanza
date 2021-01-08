@@ -235,7 +235,7 @@ export interface Transport {
     connect(opts: TransportConfig): void;
     disconnect(cleanly?: boolean): void;
     restart(): void;
-    send(name: string, data?: object): Promise<void>;
+    send(name: string, data?: JSONData): Promise<void>;
 }
 
 export interface TransportConfig {
@@ -257,6 +257,7 @@ export { Client, Constants, JXT, JID, Namespaces, Stanzas, Jingle, Utils, RTT, L
 export const VERSION = Constants.VERSION;
 
 import Plugins from './plugins';
+import { JSONData } from './jxt';
 export * from './plugins';
 
 export function createClient(opts: AgentConfig): Agent {
